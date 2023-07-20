@@ -1,0 +1,48 @@
+.App{
+    color: #fff;
+    background-color: #20222A;
+    width: 100%;
+}
+
+.App-sub-container{
+    position: fixed;
+    width: 100%;
+    padding: 1rem;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4.1px);
+    -webkit-backdrop-filter: blur(4.1px);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+}
+
+
+.App-sub-container h1{
+    font-size: 2rem;
+    font-weight: 700;
+    background: none;
+    padding-left: 10px;
+}
+
+.live{
+    background: none;
+    animation-name: live ;
+    animation-duration: 1.2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    transform: scale(1.2);
+}
+
+@keyframes live {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+

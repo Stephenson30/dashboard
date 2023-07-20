@@ -1,0 +1,53 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.header-container{
+    width: 100%;
+}
+
+ul {
+    display: flex;
+    width: 100%;
+    font-size: 1em;
+    font-weight: 500;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 3rem;
+}
+
+ul li {
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    backdrop-filter: blur(4.1px);
+    -webkit-backdrop-filter: blur(4.1px);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    width: 180px;
+    text-align: center;
+    cursor: pointer;
+    padding: .5em ;
+}
+
+ :focus > li {
+    border: none;
+    border-radius: 16px;
+    box-shadow: inset 1px 1px 5px rgb(0, 80, 201);
+    transition: all 2s; 
+}
+
+@media (min-width: 450px){
+    ul{
+        max-width: 435px;
+    }
+}
+
+
+@media (min-width: 810px){
+    ul{
+        max-width: 435px;
+    }
+}
