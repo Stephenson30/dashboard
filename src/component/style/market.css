@@ -26,6 +26,7 @@ input{
     padding: .8rem;
     border-radius: 10px ;
     color: #fff;
+    border: none;
 }
 
 input:focus,
@@ -38,6 +39,7 @@ button{
     color: #fff;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding:  .8em;
     margin-left: 8px;
     border-radius: 8px;
@@ -259,6 +261,10 @@ th .cap-rank{
 .trend-img-cont-nft{
     display: flex;
     align-items: center;
+}
+
+.trend-img-cont{
+    align-items: flex-start;
 }
 
 .trend-img-cont-nft img {

@@ -13,6 +13,7 @@ const NftsMarket = () => {
   })
    const [chooseLink, setChooseLink] = useState(false)
    const [done, setdone] = useState(true)
+   const key:string = (input.contract.replace(/\s+/g, ' ').trim()).toLowerCase()
     
  // useEffect hook for Restful API
    useEffect(()=> {
@@ -48,7 +49,7 @@ const NftsMarket = () => {
 
        setSearchData(pre => {
  
-         if (resultData?.contract_address === input.contract){
+         if (resultData?.contract_address === key){
            return pre = (
            <div className='search-result fade'>
                 <div className='search-result'>
@@ -97,7 +98,7 @@ const NftsMarket = () => {
        })
      }
      getCoin()
-     console.log(searchData)
+
  }, [chooseLink] )
  
  
@@ -112,7 +113,7 @@ const NftsMarket = () => {
  
  //  search function that calls useEffect hook for searching
    const onSearch = () => {
-     if(input.contract.length === 0){
+     if(key.length === 0){
        setChooseLink(false)
      }else{
        setChooseLink(true)
@@ -132,7 +133,7 @@ const NftsMarket = () => {
  
  //  reset function that calls clear function when input value is been deleted to zero
  const reset = () => {
-   if(input.contract.length === 0){
+   if(key.length === 0){
      onClear()
    }
  }
@@ -144,7 +145,7 @@ const NftsMarket = () => {
           className='search-input nft-input'
           name='contract'
           onChange={handleChange}
-          value={input.contract}
+          value={key}
           onKeyUp={reset}
           />
 
@@ -163,7 +164,7 @@ const NftsMarket = () => {
             onClick={onSearch}
             className='btn'
 
-            disabled = {input.contract.length === 0? true : false}
+            disabled = {key.length === 0? true : false}
           >
           <SearchIcon className='SearchIcon' />
         </button>
@@ -200,7 +201,6 @@ const NftsMarket = () => {
             </>
           }
         
-
        </div>
     </div>
   )

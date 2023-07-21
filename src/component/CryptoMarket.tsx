@@ -13,7 +13,7 @@ const CryptoMarket = () => {
   })
   const [chooseLink, setChooseLink] = useState(false)
   const [done, setdone] = useState(true)
-  const key:string = (input.search).toLowerCase()
+  const key:string = (input.search.replace(/\s+/g, ' ').trim()).toLowerCase()
 
    
 // useEffect hook for Restful API
@@ -53,7 +53,6 @@ const CryptoMarket = () => {
       const res = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${key}&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true&include_last_updated_at=true`)
       const resultData = await res.json()
       const object:any = Object.keys(resultData)
-      const checked = object.length === 0 ? <p className='fade p'>Invaild Token Input Or Check Your Network Connectivity</p> : <p className='fade p'>Searching...</p> 
       
       setSearchData(pre => {
         if (resultData[key]?.usd && object.length !== 0){
@@ -67,7 +66,7 @@ const CryptoMarket = () => {
             </tr>
               <tr>
                 <td className='name-img-cont name-th'>
-                  <p className='name name-th'>{input.search.toUpperCase()}</p>
+                  <p className='name name-th'>{key.toUpperCase()}</p>
                 </td>
                 <td >{resultData[key]?.usd}</td>
                 <td>{resultData[key]?.usd_market_cap}</td>
@@ -107,7 +106,7 @@ const CryptoMarket = () => {
 
 //  search function that calls useEffect hook for searching
   const onSearch = () => {
-    if(input.search.length === 0){
+    if(key.length === 0){
       setChooseLink(false)
     }else{
       setChooseLink(true)
@@ -127,7 +126,7 @@ const onClear = () => {
 
 //  reset function that calls clear function when input value is been deleted to zero
 const reset = () => {
-  if(input.search.length === 0){
+  if(key.length === 0){
     onClear()
   }
 }
@@ -135,18 +134,20 @@ const reset = () => {
     <div className='Market-cont'>
       <div className='search-cont'>
         <input
-          placeholder='Input full token name...'
+          placeholder='Input token full name...'
           className='search-input'
           name='search'
           onChange={handleChange}
-          value={input.search} 
+          value={key} 
           onKeyUp={reset}
+          autoComplete='none'
+          autoFocus
           />
         {done ?
           <button
             onClick={onSearch}
             className='btn'
-            disabled = {input.search.length === 0? true : false}
+            disabled = {key.length === 0? true : false}
         >
         <SearchIcon className='SearchIcon' />
         <span>Search</span>

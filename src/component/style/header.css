@@ -26,10 +26,13 @@ ul li {
     backdrop-filter: blur(4.1px);
     -webkit-backdrop-filter: blur(4.1px);
     border: 1px solid rgba(255, 255, 255, 0.09);
-    width: 180px;
+    width: 160px;
     text-align: center;
     cursor: pointer;
     padding: .5em ;
+    list-style: none;
+    text-decoration: none;
+    font-weight: bold;
 }
 
  :focus > li {
